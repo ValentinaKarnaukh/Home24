@@ -170,4 +170,15 @@ public class PersonalAccountTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
+    @Test
+    public void taxIncomeReduceIncorrect2() {
+        PersonalAccount personalAccount = new PersonalAccount(-100.0, -10.0);
+
+        double expected = 0;
+        double actual = personalAccount.taxIncomeReduce();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
 }
