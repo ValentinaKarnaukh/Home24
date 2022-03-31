@@ -1,4 +1,4 @@
-public class PersonalAccount {
+public class PersonalAccount implements Account {
     private double income;
     private double cost;
 
@@ -15,24 +15,26 @@ public class PersonalAccount {
         return cost;
     }
 
-    public double plusIncome() {
-        double income = 0.00;
-        if (getIncome() >= 0) {
-            income += getIncome();
+    @Override
+    public double setIncome(double newIncome) {
+        if (newIncome < 0) {
+            newIncome = 0;
         } else {
-            System.out.println("Введенное значение: " + getIncome() + " некорректно!");
+            income += newIncome;
         }
-        return income;
+
+        return newIncome;
     }
 
-    public double plusCost() {
-        double cost = 0;
-        if (getCost() >= 0) {
-            cost += getCost();
+    @Override
+    public double setCost(double newCost) {
+        if (newCost < 0) {
+            newCost = 0;
         } else {
-            System.out.println("Введенное значение: " + getCost() + " некорректно!");
+            cost += newCost;
         }
-        return cost;
+
+        return newCost;
     }
 
     public double taxIncome() {
@@ -64,4 +66,6 @@ public class PersonalAccount {
         }
         return tax;
     }
+
+
 }
